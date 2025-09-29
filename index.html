@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>clouNine LLC | Mobile App Engineering & Delivery</title>
+  <meta name="description" content="clouNine LLC is a US-based mobile engineering firm delivering high-quality iOS, Android, and cross‑platform apps with strong DevOps, QA automation, and performance optimization." />
+  <meta name="keywords" content="Mobile app development, iOS, Android, Flutter, React Native, Kotlin, Swift, DevOps, CI/CD, QA automation, performance engineering" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#22c55e" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="clouNine LLC | Mobile App Engineering & Delivery" />
+  <meta property="og:description" content="US-based mobile engineering team for iOS, Android, and cross‑platform. Architecture, CI/CD, testing, and performance built-in." />
+  <meta property="og:type" content="website" />
+  <!-- TODO: Replace with your canonical URL when ready -->
+  <meta property="og:url" content="https://cloudnineapp.net/" />
+  <meta property="og:image" content="https://cloudnineapp.net/og-cover.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📱</text></svg>">
+
+  <style>
+    :root{
+      --bg:#0b1117; --card:#0f1722; --muted:#9aa4b2; --text:#e6edf3; --brand:#22c55e; --brand-2:#06b6d4; --accent:#f59e0b; --danger:#ef4444;
+      --ring:0 0 0 3px rgba(34,197,94,.35);
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --radius:14px;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7fafc; --card:#ffffff; --muted:#5b6472; --text:#0b1117; --brand:#22c55e; --brand-2:#0ea5e9; --accent:#d97706; }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(34,197,94,.15), transparent),
+                  radial-gradient(800px 400px at 10% -10%, rgba(14,165,233,.15), transparent),
+                  var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1160px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:linear-gradient( to bottom right, rgba(34,197,94,.15), rgba(14,165,233,.15));backdrop-filter: blur(6px);color:var(--text);transition:.2s;cursor:pointer}
+    .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
+    .btn-primary{background:linear-gradient( to right, var(--brand), var(--brand-2)); color:#041016; border:none}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.04);font-size:14px;color:var(--muted)}
+    .section{padding:80px 0}
+    .grid{display:grid;gap:20px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:960px){ .grid-3{grid-template-columns:1fr 1fr} }
+    @media (max-width:680px){ .grid-3,.grid-2{grid-template-columns:1fr} .section{padding:56px 0} }
+
+    /* Header */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:12px;top:12px;width:auto;height:auto;background:#fff;color:#000;padding:8px 12px;border-radius:8px}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,17,23,.6);backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo-badge{width:28px;height:28px;border-radius:8px;background:linear-gradient(180deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#041016;font-weight:900}
+    .logo-title{letter-spacing:.2px}
+    .navlinks{display:flex;gap:20px;align-items:center}
+    .navlinks a{color:var(--muted);font-weight:600}
+    .navlinks a.active,.navlinks a:hover{color:var(--text)}
+    .menu-btn{display:none}
+    @media (max-width:860px){
+      .navlinks{display:none}
+      .menu-btn{display:inline-flex}
+      .mobile-menu{display:none;position:absolute;right:20px;top:64px;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;box-shadow:var(--shadow);padding:10px}
+      .mobile-menu a{display:block;padding:10px 12px;color:var(--muted)}
+      .mobile-menu a:hover{color:var(--text);background:rgba(255,255,255,.04);border-radius:8px}
+      .mobile-menu.open{display:block}
+    }
+
+    /* Hero */
+    .hero{padding:96px 0 56px}
+    .hero h1{font-size:44px;line-height:1.15;margin:0 0 12px}
+    .hero p{color:var(--muted);margin:0 0 24px}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px}
+    .stat{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-weight:700}
+    .trust{display:flex;gap:24px;opacity:.7;flex-wrap:wrap;align-items:center;margin-top:26px}
+
+    /* Cards */
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:20px; box-shadow:0 4px 16px rgba(0,0,0,.18)}
+    .card h3{margin:6px 0 10px}
+    .meta{color:var(--muted);font-size:14px}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:36px 0 60px}
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
+    @media (max-width:820px){ .foot-grid{grid-template-columns:1fr} }
+    .foot-meta{color:var(--muted);font-size:14px}
+
+    /* Badges */
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(34,197,94,.12);color:#9de3b7;border:1px solid rgba(34,197,94,.35);font-size:13px;font-weight:700}
+    .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--brand)}
+    .list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+    .list li::before{content:"• "; color:var(--brand)}
+    code.inline{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px;border:1px solid rgba(255,255,255,.08)}
+  </style>
+
+  <!-- JSON-LD Structured Data (Organization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "clouNine LLC",
+    "email": "jason@cloudnineapp.net",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1942 Broadway Ste 314C",
+      "addressLocality": "Boulder",
+      "addressRegion": "CO",
+      "postalCode": "80302",
+      "addressCountry": "US"
+    },
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "email": "jason@cloudnineapp.net",
+      "contactType": "sales",
+      "areaServed": "US"
+    }],
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a href="#" class="logo" aria-label="clouNine LLC Home">
+        <span class="logo-badge">CN</span>
+        <span class="logo-title">clouNine LLC</span>
+      </a>
+      <nav class="navlinks" aria-label="Main menu">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#process">Process</a>
+        <a href="#work">Work</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#contact" class="active">Contact</a>
+      </nav>
+      <button class="btn menu-btn" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">Menu ▾</button>
+      <div class="mobile-menu" role="menu" aria-label="Mobile menu">
+        <a role="menuitem" href="#capabilities">Capabilities</a>
+        <a role="menuitem" href="#process">Process</a>
+        <a role="menuitem" href="#work">Work</a>
+        <a role="menuitem" href="#engineering">Engineering</a>
+        <a role="menuitem" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="chip" aria-hidden="true">US-based • Mobile Engineering</div>
+        <h1>Mobile app engineering for ambitious products</h1>
+        <p>We build and scale high-quality iOS and Android apps. Strong architecture, automated testing, CI/CD, observability, and performance are built-in from day one.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:jason@cloudnineapp.net" aria-label="Email us">Get a proposal</a>
+          <a class="btn" href="#capabilities">See capabilities</a>
+        </div>
+        <div class="stats" aria-label="Key delivery metrics">
+          <div class="stat">Crash‑free sessions ≥ 99.8%</div>
+          <div class="stat">p95 cold start ≤ 1.8s</div>
+          <div class="stat">Release lead time: weekly</div>
+        </div>
+        <div class="trust" aria-label="Trusted tooling and platforms">
+          <span class="meta">We ship on</span>
+          <img alt="Apple" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='20'%3E%3Ctext x='0' y='14' font-size='14' fill='%239aa4b2'%3EApp Store%3C/text%3E%3C/svg%3E">
+          <img alt="Google Play" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='20'%3E%3Ctext x='0' y='14' font-size='14' fill='%239aa4b2'%3EGoogle Play%3C/text%3E%3C/svg%3E">
+          <img alt="Firebase" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='20'%3E%3Ctext x='0' y='14' font-size='14' fill='%239aa4b2'%3EFirebase%3C/text%3E%3C/svg%3E">
+          <img alt="AWS" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='20'%3E%3Ctext x='0' y='14' font-size='14' fill='%239aa4b2'%3EAWS%3C/text%3E%3C/svg%3E">
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section id="capabilities" class="section">
+      <div class="container">
+        <div class="grid grid-3">
+          <div class="card">
+            <span class="badge"><span class="dot" aria-hidden="true"></span> Native iOS</span>
+            <h3>Swift, SwiftUI, UIKit</h3>
+            <p class="meta">Architectures: MVVM, The Composable Architecture. Tooling: Xcode, Tuist, Swift Package Manager.</p>
+            <ul class="list">
+              <li>Offline-first sync, Core Data/Realm</li>
+              <li>In‑app purchases, Sign in with Apple</li>
+              <li>Accessibility, Dynamic Type, localization</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="badge"><span class="dot"></span> Native Android</span>
+            <h3>Kotlin, Jetpack</h3>
+            <p class="meta">Architectures: MVVM/MVI, Kotlin Coroutines/Flow. Tooling: Android Studio, Gradle, KSP.</p>
+            <ul class="list">
+              <li>Jetpack Compose or XML</li>
+              <li>Room/SQLDelight, WorkManager</li>
+              <li>Play Billing, App Bundles, ProGuard/R8</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="badge"><span class="dot"></span> Cross‑platform</span>
+            <h3>Flutter · React Native</h3>
+            <p class="meta">Share a single codebase where it makes sense, keep native extensions for platform‑specific UX and performance.</p>
+            <ul class="list">
+              <li>Flutter: Riverpod/Bloc, Navigator 2.0</li>
+              <li>React Native: TypeScript, Reanimated</li>
+              <li>Native Modules, Detox/E2E testing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-3" style="margin-top:20px">
+          <div class="card">
+            <span class="badge"><span class="dot"></span> Backend & APIs</span>
+            <h3>Secure, scalable services</h3>
+            <p class="meta">Node.js, Go, Python. REST/GraphQL/gRPC. AuthN/Z, rate limiting, observability.</p>
+            <ul class="list">
+              <li>AWS/GCP/Azure, Cloud Run/ECS/Lambda</li>
+              <li>PostgreSQL, DynamoDB, Redis</li>
+              <li>OpenAPI/Swagger, contract testing</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="badge"><span class="dot"></span> QA Automation</span>
+            <h3>CI/CD, test coverage</h3>
+            <p class="meta">XCTest, Espresso, JUnit, MockK, Playwright. Fastlane, Gradle tasks, build pipelines.</p>
+            <ul class="list">
+              <li>Unit, snapshot, integration, E2E</li>
+              <li>Device farms (Firebase Test Lab)</li>
+              <li>Release trains, feature flags</li>
+            </ul>
+          </div>
+          <div class="card">
+            <span class="badge"><span class="dot"></span> Performance & Observability</span>
+            <h3>Fast, reliable apps</h3>
+            <p class="meta">Profiling and budgets: cold start, jank, memory, network, and size.</p>
+            <ul class="list">
+              <li>p95 cold start ≤ 1.8s, ANR < 0.3%</li>
+              <li>Crash‑free sessions ≥ 99.8%</li>
+              <li>Tracing, metrics, alerting (Crashlytics, Sentry)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section">
+      <div class="container">
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>01 · Discover</h3>
+            <p class="meta">Product goals, success metrics, risks. Technical audit if applicable.</p>
+            <ul class="list">
+              <li>Scope & assumptions</li>
+              <li>Risks & mitigations</li>
+              <li>High‑level architecture</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>02 · Design</h3>
+            <p class="meta">Collaborate on flows and UI. Define API contracts and data models.</p>
+            <ul class="list">
+              <li>UX flows, wireframes</li>
+              <li>Design tokens & theming</li>
+              <li>API specs (OpenAPI/GraphQL)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>03 · Build</h3>
+            <p class="meta">Trunk‑based development with short‑lived branches, code reviews, and CI checks.</p>
+            <ul class="list">
+              <li>Feature flags, migrations</li>
+              <li>Static analysis & lint rules</li>
+              <li>Automated test suite</li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid grid-3" style="margin-top:20px">
+          <div class="card">
+            <h3>04 · Quality</h3>
+            <p class="meta">Regression suite, device matrix, performance budgets, accessibility checks.</p>
+            <ul class="list">
+              <li>E2E & snapshot baselines</li>
+              <li>Device lab runs per PR</li>
+              <li>Security review (OWASP MASVS)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>05 · Launch</h3>
+            <p class="meta">Release trains, staged rollouts, store assets, submissions, and monitoring.</p>
+            <ul class="list">
+              <li>App Store & Play Console</li>
+              <li>Crash & ANR watch windows</li>
+              <li>Rollbacks & hotfix playbooks</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>06 · Grow</h3>
+            <p class="meta">Experiment, measure, and iterate. We align engineering with business results.</p>
+            <ul class="list">
+              <li>Analytics & product telemetry</li>
+              <li>A/B tests & cohort analysis</li>
+              <li>Roadmap and capacity planning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work / Case Studies (placeholders to replace with your real data) -->
+    <section id="work" class="section">
+      <div class="container">
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Fintech onboarding re‑build</h3>
+            <p class="meta">iOS + Android · Kotlin/Swift · Feature flags</p>
+            <ul class="list">
+              <li>Reduced p95 onboarding time by 38%</li>
+              <li>Crash‑free sessions from 99.4% ➝ 99.9%</li>
+              <li>Weekly release cadence with staged rollouts</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Logistics driver app</h3>
+            <p class="meta">Android first · Offline‑first · Background sync</p>
+            <ul class="list">
+              <li>Cut ANR rate to 0.2%</li>
+              <li>Offline delivery flow with conflict resolution</li>
+              <li>Real‑time telematics and alerts</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Healthcare patient portal</h3>
+            <p class="meta">Flutter · HIPAA‑aware architecture</p>
+            <ul class="list">
+              <li>End‑to‑end encryption at rest and in transit</li>
+              <li>90% automated regression coverage on core flows</li>
+              <li>App size reduced by 25% with code‑split</li>
+            </ul>
+          </div>
+        </div>
+        <p class="meta" style="margin-top:12px">Note: The above are representative outcomes. Replace with your verified case studies and metrics.</p>
+      </div>
+    </section>
+
+    <!-- Engineering -->
+    <section id="engineering" class="section">
+      <div class="container">
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Tooling & Stack</h3>
+            <ul class="list">
+              <li>Swift, Kotlin, TypeScript, Dart</li>
+              <li>SwiftUI, UIKit, Jetpack Compose, React Native, Flutter</li>
+              <li>Gradle, Fastlane, Tuist, SPM</li>
+              <li>Firebase, Crashlytics, Sentry</li>
+              <li>AWS/GCP, Terraform, GitHub Actions</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Quality & Security</h3>
+            <ul class="list">
+              <li>Code review + PR checks on every change</li>
+              <li>Static analysis (Detekt, ktlint, SwiftLint)</li>
+              <li>Secret scanning, SAST/DAST, SBOMs</li>
+              <li>OWASP MASVS best practices</li>
+              <li>Threat modeling & secure storage</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Metrics we own</h3>
+            <ul class="list">
+              <li>Crash‑free users and sessions</li>
+              <li>p95 cold start and jank frames</li>
+              <li>ANR rate and error budgets</li>
+              <li>Release lead time and change failure rate</li>
+              <li>Automated test coverage on core flows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Tell us about your project</h3>
+            <p class="meta">Share your goals, timeline, and constraints. We’ll return a tailored plan and estimate.</p>
+            <a class="btn btn-primary" href="mailto:jason@cloudnineapp.net">jason@cloudnineapp.net</a>
+          </div>
+          <div class="card">
+            <h3>Company & Legal</h3>
+            <ul class="list">
+              <li><strong>Legal Business Name:</strong> clouNine LLC</li>
+              <li><strong>Legal Structure:</strong> Limited Liability Company <span class="meta">(some platforms may display “Corporation” as a general label)</span></li>
+              <li><strong>Address:</strong> 1942 Broadway Ste 314C, Boulder, CO 80302, USA</li>
+              <li><strong>Email:</strong> jason@cloudnineapp.net</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:8px">
+          <span class="logo-badge">CN</span>
+          <span class="logo-title">clouNine LLC</span>
+        </div>
+        <div class="foot-meta">
+          1942 Broadway Ste 314C, Boulder, CO 80302, USA<br/>
+          Legal structure: Limited Liability Company (LLC)
+        </div>
+      </div>
+      <div>
+        <h4 style="margin:6px 0 10px">Explore</h4>
+        <div class="list">
+          <a href="#capabilities">Capabilities</a>
+          <a href="#process">Process</a>
+          <a href="#work">Work</a>
+          <a href="#engineering">Engineering</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="margin:6px 0 10px">Contact</h4>
+        <div class="list">
+          <a href="mailto:jason@cloudnineapp.net">jason@cloudnineapp.net</a>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="margin-top:20px">
+      <div class="foot-meta">© <span id="year"></span> clouNine LLC. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
